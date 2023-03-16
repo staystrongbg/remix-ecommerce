@@ -119,8 +119,8 @@ export const action: ActionFunction = async ({ request, params }) => {
 
 export default function ToyId() {
   const toy = useLoaderData() as Toy & { images: Image[]; comments: Comment[] };
-  const [selectedImage, setSelectedImage] = useState<string>();
-
+  const [selectedImage, setSelectedImage] = useState<string>("");
+  console.log(toy);
   useEffect(() => {
     if (!selectedImage) {
       if (toy.images) {
@@ -162,7 +162,6 @@ export default function ToyId() {
             })}
           </StyledImageWrapper>
           <StyledImage
-            className="toy-details--image"
             style={{
               backgroundImage: `url(${selectedImage})`,
             }}
